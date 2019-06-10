@@ -1,0 +1,67 @@
+<idea-plugin>
+    <id>ir.intellij.idea.plugin</id>
+    <name>Xml Contributor</name>
+    <version>0.0.2 release</version>
+    <vendor email="abbaspirmorady@gmail.com" url="https://www.dotin.ir/en/"></vendor>
+
+    <description><![CDATA[
+  <p>This plugin is developed by Abbas Pirmoradi . </p>
+ <br/>
+ <p> Via using this plugin it's possible to provide references to elements which support that. Such known elements include: XML tags and attribute values</p>
+ <p> Additionally, run once per project and able to
+  register reference providers for specific locations.</p>
+<p>
+ <br/>
+★ Jump to method declaration feature:</p>
+
+<p>Using this plugin you can navigate from your xml attribute value to reference declaration.</p>
+ <br/>
+<p>★ Auto completion feature:</p>
+
+<p>When you are typing at your desire xml attribute value, the plugin helps you by suggesting the classes, packages, and methods.</p>
+ <br/>
+<p>★ Typo error detector:</p>
+
+<p>If there is any error in your target xml attribute value, this value will be red highlighted and you know you have a mistake at your string value.</p>
+ <br/>
+<p>★ Refactoring methods at xml file.</p>
+ <br/>
+<p>★ Find usage of methods at xml files.</p>
+ <br/>
+<p>Important note:</p>
+<p>Using this plugin, you could set your intended xml tag by changing the plugin source code(at config.properties file) or going throw Settings> Tools> XML Contributor Plugin.</p>
+ <br/>
+<a href="https://github.com/abbaspirmoradi/IntelliJ-Idea-XML-contributor-Plugin">★★★ Plugin Source Code ★★★</a>
+    ]]></description>
+
+    <change-notes>
+        Now, every one can determine their own xml target tags by going throw Settings> Tools> XML Contributor Plugin.
+        After restarting your Idea, you will see your changes results. Then, enjoy your coding!
+
+    </change-notes>
+    <idea-version since-build="162"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <!--  <idea-version since-build="191.6183.87"/>-->
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    -->
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectConfigurable groupId="tools" displayName="XML Contributor Plugin"
+                             id="preference.XmlAttributeConfigurable"
+                             instance="ir.dotin.conf.XmlAttributeConfigurable"/>
+        <projectService serviceInterface="ir.dotin.conf.XmlContributorConfiguration"
+                        serviceImplementation="ir.dotin.conf.XmlContributorConfiguration"/>
+        <psi.referenceContributor implementation="ir.dotin.contributor.XmlReferencesContributor"/>
+    </extensions>
+
+    <actions>
+
+    </actions>
+
+</idea-plugin>
